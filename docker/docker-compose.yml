@@ -1,0 +1,33 @@
+version: '3.8'
+
+volumes:
+  postgres_data:
+    driver: local
+services:
+  kc-postgres:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+  keycloak:
+    build: .
+    command: start-dev
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: secret
+    ports:
+      - 3000:8443
+      - 9000:8080
+    depends_on:
+      - kc-postgres
