@@ -1,16 +1,16 @@
 package io.ksetoue.login.domain
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
+import java.time.OffsetDateTime
 
 @Entity
+@Table(name = "customer")
 data class Customer(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long = 0,
-    var name: String? = null,
-    var serviceRendered: String? = null,
-    var address: String? = null,
+    val id: Long?,
+    val name: String?,
+    val serviceRendered: String,
+    val address: String,
+    val createdAt: OffsetDateTime = OffsetDateTime.now(),
 )

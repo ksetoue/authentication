@@ -4,6 +4,16 @@ volumes:
   postgres_data:
     driver: local
 services:
+  customer-postgres:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: customer
+      POSTGRES_USER: userapp
+      POSTGRES_PASSWORD: supersecret
+    ports:
+      - 5433:5432
   kc-postgres:
     image: postgres
     volumes:

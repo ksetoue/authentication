@@ -30,7 +30,7 @@ dependencies {
     testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.junit.jupiter:junit-jupiter")
 
-    runtimeOnly("org.hsqldb:hsqldb")
+    implementation("org.postgresql:postgresql")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

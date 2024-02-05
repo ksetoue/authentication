@@ -38,20 +38,26 @@ class CustomerController {
 
     // add customers for demonstration
     fun addCustomers() {
-        val customer1 = Customer()
-        customer1.address = "1111 foo blvd"
-        customer1.name = "Foo Industries"
-        customer1.serviceRendered = "Important services"
+        val customer1 = Customer(
+            id = null,
+            address = "1111 foo blvd",
+            name = "Foo Industries",
+            serviceRendered = "Important services",
+        )
         customerDAO?.save(customer1)
-        val customer2 = Customer()
-        customer2.address = "2222 bar street"
-        customer2.name = "Bar LLP"
-        customer2.serviceRendered = "Important services"
+        val customer2 = Customer(
+            id = null,
+            address = "2222 bar street",
+            name = "Bar LLP",
+            serviceRendered = "Important services",
+        )
         customerDAO?.save(customer2)
-        val customer3 = Customer()
-        customer3.address = "33 main street"
-        customer3.name = "Big LLC"
-        customer3.serviceRendered = "Important services"
+        val customer3 = Customer(
+            id = null,
+            address = "33 main street",
+            name = "Big LLC",
+            serviceRendered = "Important services",
+        )
         customerDAO!!.save(customer3)
     }
 }
